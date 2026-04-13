@@ -212,35 +212,43 @@
   }
   .hero-trust svg{width:14px;height:14px;fill:none;stroke:rgba(255,255,255,.38);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 
-  /* ── Advisor preview grid (hero right column) ── */
+  /* ── Advisor cloud (hero right column) ── */
   .hero-right{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    align-items:start;
+    position:relative;
+    width:100%;max-width:680px;
+    aspect-ratio:9/10;
     animation:fadeUp .8s .15s ease both;
   }
 
+  /* All cards absolutely placed; --rot drives rotation so
+     cycling transitions compose correctly */
   .hap{
-    position:relative;
+    position:absolute;
     border-radius:14px;overflow:hidden;
     aspect-ratio:3/4;
     cursor:pointer;
-    border:1px solid rgba(255,255,255,.1);
-    transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .25s,opacity .38s ease;
+    border:1.5px solid rgba(255,255,255,.14);
+    box-shadow:0 8px 28px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);
+    transform:rotate(var(--rot,0deg));
+    transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,
+               border-color .25s,opacity .38s ease;
   }
-  /* State during advisor swap */
+  /* Cycling fade — preserves rotation */
   .hap.cycling{
     opacity:0;
-    transform:scale(.95) translateY(4px);
+    transform:rotate(var(--rot,0deg)) scale(.92) translateY(8px);
     pointer-events:none;
   }
-  /* Stagger even-column cards down for depth */
-  .hap:nth-child(even){margin-top:32px}
+  /* Size weights */
+  .hap-lg{width:29%}
+  .hap-md{width:22%}
+  .hap-sm{width:15.5%}
+
   .hap:hover{
-    transform:translateY(-8px) scale(1.03);
-    box-shadow:0 28px 56px rgba(0,0,0,.55);
-    border-color:rgba(56,189,248,.55);
+    transform:rotate(var(--rot,0deg)) translateY(-10px) scale(1.07);
+    box-shadow:0 32px 64px rgba(0,0,0,.7),0 6px 18px rgba(0,0,0,.4);
+    border-color:rgba(56,189,248,.6);
+    z-index:30!important;
   }
   .hap img{
     width:100%;height:100%;
@@ -249,46 +257,58 @@
   }
   .hap:hover img{transform:scale(1.07)}
 
-  /* Name / role gradient overlay */
+  /* Name / role gradient overlay — scales with card */
   .hap-over{
     position:absolute;bottom:0;left:0;right:0;
-    background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.42) 55%,transparent 100%);
-    padding:34px 11px 11px;
+    background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.4) 55%,transparent 100%);
+    padding:26px 9px 9px;
   }
   .hap-name{
-    font-family:var(--font-d);font-size:13.5px;
-    color:#fff;line-height:1.25;margin-bottom:2px;
+    font-family:var(--font-d);font-size:13px;
+    color:#fff;line-height:1.2;margin-bottom:2px;
     letter-spacing:-.01em;
   }
-  .hap-role{font-size:11px;color:rgba(255,255,255,.72);line-height:1.35}
+  .hap-role{font-size:10px;color:rgba(255,255,255,.7);line-height:1.3}
+  /* Smaller text on small cards */
+  .hap-sm .hap-name{font-size:10px}
+  .hap-sm .hap-role{font-size:8.5px}
+  .hap-md .hap-name{font-size:11.5px}
+  .hap-md .hap-role{font-size:9.5px}
 
   /* Quick-book pill — appears on hover */
   .hap-btn{
-    position:absolute;top:9px;right:9px;
-    display:flex;align-items:center;gap:5px;
-    padding:5px 10px 5px 7px;
+    position:absolute;top:8px;right:8px;
+    display:flex;align-items:center;gap:4px;
+    padding:4px 8px 4px 6px;
     background:var(--cta);border:none;border-radius:100px;cursor:pointer;
-    font-family:var(--font-b);font-size:10.5px;font-weight:700;
-    color:#fff;letter-spacing:.02em;text-transform:uppercase;
-    opacity:0;transform:translateY(-4px) scale(.9);
+    font-family:var(--font-b);font-size:9.5px;font-weight:700;
+    color:#0F172A;letter-spacing:.03em;text-transform:uppercase;
+    opacity:0;transform:translateY(-4px) scale(.88);
     transition:opacity .22s,transform .22s,box-shadow .22s;
     box-shadow:0 4px 14px var(--cta-glow);
     pointer-events:none;
   }
   .hap:hover .hap-btn{opacity:1;transform:none;pointer-events:all}
   .hap-btn:hover{background:var(--cta-hover);box-shadow:0 6px 18px var(--cta-glow)}
-  .hap-btn svg{width:11px;height:11px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+  .hap-btn svg{width:10px;height:10px;fill:none;stroke:#0F172A;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+  /* Hide pill on tiny cards */
+  .hap-sm .hap-btn{display:none}
 
   @keyframes hapIn{
-    from{opacity:0;transform:translateY(16px) scale(.96)}
-    to{opacity:1;transform:none}
+    from{opacity:0;transform:rotate(var(--rot,0deg)) translateY(14px) scale(.95)}
+    to{opacity:1;transform:rotate(var(--rot,0deg))}
   }
-  .hap:nth-child(1){animation:hapIn .6s .25s ease both}
-  .hap:nth-child(2){animation:hapIn .6s .33s ease both}
-  .hap:nth-child(3){animation:hapIn .6s .41s ease both}
-  .hap:nth-child(4){animation:hapIn .6s .49s ease both}
-  .hap:nth-child(5){animation:hapIn .6s .57s ease both}
-  .hap:nth-child(6){animation:hapIn .6s .65s ease both}
+  .hap:nth-child(1){animation:hapIn .65s .20s ease both}
+  .hap:nth-child(2){animation:hapIn .65s .27s ease both}
+  .hap:nth-child(3){animation:hapIn .65s .33s ease both}
+  .hap:nth-child(4){animation:hapIn .65s .39s ease both}
+  .hap:nth-child(5){animation:hapIn .65s .45s ease both}
+  .hap:nth-child(6){animation:hapIn .65s .50s ease both}
+  .hap:nth-child(7){animation:hapIn .65s .55s ease both}
+  .hap:nth-child(8){animation:hapIn .65s .60s ease both}
+  .hap:nth-child(9){animation:hapIn .65s .65s ease both}
+  .hap:nth-child(10){animation:hapIn .65s .70s ease both}
+  .hap:nth-child(11){animation:hapIn .65s .75s ease both}
 
   /* Stats strip */
   .hero-stats{
@@ -748,7 +768,7 @@
   @media(max-width:1000px){
     .hero-main{grid-template-columns:1fr;gap:32px;padding-top:100px;padding-bottom:28px}
     .hero-left{order:1}
-    .hero-right{order:2;grid-template-columns:repeat(3,1fr);gap:8px}
+    .hero-right{order:2;max-width:100%}
     .hero-headline{font-size:clamp(34px,5vw,52px)}
     .advisors-grid{grid-template-columns:repeat(2,1fr)}
     .mission-grid{grid-template-columns:1fr;gap:48px}
@@ -758,9 +778,19 @@
   @media(max-width:640px){
     .wrap{padding:0 16px}
     .hero-main{padding:88px 16px 20px}
-    .hero-right{grid-template-columns:repeat(2,1fr);gap:10px}
-    .hap:nth-child(even){margin-top:16px}
+    /* Cloud → 2-col mini-grid on phones */
+    .hero-right{
+      position:static;display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;height:auto;aspect-ratio:unset;max-width:100%;
+    }
+    .hap,.hap-lg,.hap-md,.hap-sm{
+      position:static!important;width:auto!important;
+      transform:none!important;--rot:0deg;aspect-ratio:3/4;
+      top:auto!important;left:auto!important;z-index:auto!important;
+    }
     .hap:nth-child(n+5){display:none}
+    .hap-sm .hap-btn{display:flex}
     .advisors-grid{grid-template-columns:1fr}
     .hero-stats-inner{grid-template-columns:repeat(2,1fr)}
     .stat{padding:18px 14px}
@@ -778,7 +808,7 @@
     .chip{font-size:11px;padding:4px 11px}
     /* Mission */
     .mission-body{max-width:100%}
-    /* Modal */
+    /* Modal bottom sheet */
     .modal{border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;max-height:92vh}
     .overlay{align-items:flex-end;padding:0}
   }
@@ -832,79 +862,72 @@
       </div>
     </div>
 
-    <!-- Right: advisor faces -->
+    <!-- Right: advisor cloud — 11 faces, weighted sizes, absolute positions -->
     <div class="hero-right">
 
-      <div class="hap" onclick="openModal('Yael Cohen','GTM Strategy, PMM Foundations, Brand & Content','YC','https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg')">
+      <!-- Row 1: top strip — 2 large + 1 medium + 1 small -->
+      <div class="hap hap-lg" style="top:0%;left:0%;--rot:-2.5deg;z-index:2">
         <img src="https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg" alt="Yael Cohen" loading="eager"/>
-        <div class="hap-over">
-          <p class="hap-name">Yael Cohen</p>
-          <p class="hap-role">GTM · PMM · Brand</p>
-        </div>
-        <button class="hap-btn" onclick="event.stopPropagation();openModal('Yael Cohen','GTM Strategy, PMM Foundations, Brand & Content','YC','https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg')">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book
-        </button>
+        <div class="hap-over"><p class="hap-name">Yael Cohen</p><p class="hap-role">GTM · PMM · Brand</p></div>
+        <button class="hap-btn" onclick="event.stopPropagation();openModal('Yael Cohen','GTM Strategy, PMM Foundations, Brand & Content','YC','https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
       </div>
 
-      <div class="hap" onclick="openModal('Dor Levi','Performance Marketing, PLG, AI Tools','DL','https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg')">
+      <div class="hap hap-lg" style="top:3%;left:31%;--rot:1deg;z-index:3">
         <img src="https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg" alt="Dor Levi" loading="eager"/>
-        <div class="hap-over">
-          <p class="hap-name">Dor Levi</p>
-          <p class="hap-role">Performance · PLG · AI</p>
-        </div>
-        <button class="hap-btn" onclick="event.stopPropagation();openModal('Dor Levi','Performance Marketing, PLG, AI Tools','DL','https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg')">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book
-        </button>
+        <div class="hap-over"><p class="hap-name">Dor Levi</p><p class="hap-role">Performance · PLG · AI</p></div>
+        <button class="hap-btn" onclick="event.stopPropagation();openModal('Dor Levi','Performance Marketing, PLG, AI Tools','DL','https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
       </div>
 
-      <div class="hap" onclick="openModal('Noa Bar','SEO / AEO, Brand & Content, PMM','NB','https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg')">
+      <div class="hap hap-md" style="top:4%;left:63%;--rot:-1.5deg;z-index:2">
         <img src="https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg" alt="Noa Bar" loading="eager"/>
-        <div class="hap-over">
-          <p class="hap-name">Noa Bar</p>
-          <p class="hap-role">SEO · Brand · PMM</p>
-        </div>
-        <button class="hap-btn" onclick="event.stopPropagation();openModal('Noa Bar','SEO / AEO, Brand & Content, PMM','NB','https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg')">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book
-        </button>
+        <div class="hap-over"><p class="hap-name">Noa Bar</p><p class="hap-role">SEO · Brand · PMM</p></div>
+        <button class="hap-btn" onclick="event.stopPropagation();openModal('Noa Bar','SEO / AEO, Brand & Content, PMM','NB','https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
       </div>
 
-      <div class="hap" onclick="openModal('Avi Shapiro','Pricing & Packaging, GTM Strategy, GTM Hires','AS','https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg')">
+      <div class="hap hap-sm" style="top:5%;left:86%;--rot:2deg;z-index:1">
         <img src="https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg" alt="Avi Shapiro" loading="eager"/>
-        <div class="hap-over">
-          <p class="hap-name">Avi Shapiro</p>
-          <p class="hap-role">Pricing · GTM · Hires</p>
-        </div>
-        <button class="hap-btn" onclick="event.stopPropagation();openModal('Avi Shapiro','Pricing & Packaging, GTM Strategy, GTM Hires','AS','https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg')">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book
-        </button>
+        <div class="hap-over"><p class="hap-name">Avi Shapiro</p><p class="hap-role">Pricing · GTM</p></div>
       </div>
 
-      <div class="hap" onclick="openModal('Maya Stern','PMM Foundations, Touch-Sales, GTM Strategy','MS','https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg')">
+      <!-- Row 2: mid strip — 1 medium + 1 large (hero) + 1 medium + 1 small -->
+      <div class="hap hap-md" style="top:43%;left:0%;--rot:1.5deg;z-index:2">
         <img src="https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg" alt="Maya Stern" loading="eager"/>
-        <div class="hap-over">
-          <p class="hap-name">Maya Stern</p>
-          <p class="hap-role">PMM · Sales · GTM</p>
-        </div>
-        <button class="hap-btn" onclick="event.stopPropagation();openModal('Maya Stern','PMM Foundations, Touch-Sales, GTM Strategy','MS','https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg')">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book
-        </button>
+        <div class="hap-over"><p class="hap-name">Maya Stern</p><p class="hap-role">PMM · Sales · GTM</p></div>
+        <button class="hap-btn" onclick="event.stopPropagation();openModal('Maya Stern','PMM Foundations, Touch-Sales, GTM Strategy','MS','https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
       </div>
 
-      <div class="hap" onclick="openModal('Ron Katz','Performance Marketing, AI Tools, PLG','RK','https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg')">
+      <div class="hap hap-lg" style="top:40%;left:23%;--rot:-1deg;z-index:4">
         <img src="https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg" alt="Ron Katz" loading="eager"/>
-        <div class="hap-over">
-          <p class="hap-name">Ron Katz</p>
-          <p class="hap-role">Growth · AI · PLG</p>
-        </div>
-        <button class="hap-btn" onclick="event.stopPropagation();openModal('Ron Katz','Performance Marketing, AI Tools, PLG','RK','https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg')">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book
-        </button>
+        <div class="hap-over"><p class="hap-name">Ron Katz</p><p class="hap-role">Growth · AI · PLG</p></div>
+        <button class="hap-btn" onclick="event.stopPropagation();openModal('Ron Katz','Performance Marketing, AI Tools, PLG','RK','https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
+      </div>
+
+      <div class="hap hap-md" style="top:42%;left:57%;--rot:2deg;z-index:2">
+        <img src="https://v3b.fal.media/files/b/0a961a9b/MwM2L9gKgWVWTnoSgQBIy.jpg" alt="Tamar Eldar" loading="eager"/>
+        <div class="hap-over"><p class="hap-name">Tamar Eldar</p><p class="hap-role">GTM · Brand · PMM</p></div>
+        <button class="hap-btn" onclick="event.stopPropagation();openModal('Tamar Eldar','GTM Strategy, Brand &amp; Content, PMM Foundations','TE','https://v3b.fal.media/files/b/0a961a9b/MwM2L9gKgWVWTnoSgQBIy.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
+      </div>
+
+      <div class="hap hap-sm" style="top:43%;left:82%;--rot:-2deg;z-index:1">
+        <img src="https://v3b.fal.media/files/b/0a961a9c/DANkz8q5yzj9Cg1vtEAwi.jpg" alt="Ben Amir" loading="eager"/>
+        <div class="hap-over"><p class="hap-name">Ben Amir</p><p class="hap-role">Perf · SEO · AI</p></div>
+      </div>
+
+      <!-- Row 3: bottom strip — 1 small + 1 medium + 1 small -->
+      <div class="hap hap-sm" style="top:70%;left:2%;--rot:1deg;z-index:1">
+        <img src="https://v3b.fal.media/files/b/0a961a9c/jkDwphk7l61-YsNwsLpIP.jpg" alt="Dana Mizrahi" loading="eager"/>
+        <div class="hap-over"><p class="hap-name">Dana Mizrahi</p><p class="hap-role">PLG · PMM</p></div>
+      </div>
+
+      <div class="hap hap-md" style="top:67%;left:22%;--rot:-1.5deg;z-index:2">
+        <img src="https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg" alt="Ilan Cohen" loading="eager"/>
+        <div class="hap-over"><p class="hap-name">Ilan Cohen</p><p class="hap-role">Pricing · Sales · GTM</p></div>
+        <button class="hap-btn" onclick="event.stopPropagation();openModal('Ilan Cohen','Pricing &amp; Packaging, Touch-Sales, GTM Strategy','IC','https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
+      </div>
+
+      <div class="hap hap-sm" style="top:71%;left:62%;--rot:2.5deg;z-index:1">
+        <img src="https://v3b.fal.media/files/b/0a961a9d/n4Y6AnHDzhnzK5gjjfF12.jpg" alt="Shira Gross" loading="eager"/>
+        <div class="hap-over"><p class="hap-name">Shira Gross</p><p class="hap-role">Growth · Hires</p></div>
       </div>
 
     </div><!-- /hero-right -->
@@ -1359,12 +1382,18 @@
 <script>
 /* ── Advisor data (single source of truth for hero cycling + modal) ── */
 const ADVISORS = [
+  // Initial slot assignments mirror DOM order (JS bindSlot overwrites on load)
   { name:'Yael Cohen',   role:'GTM · PMM · Brand',        photo:'https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg',  initials:'YC', expertise:'GTM Strategy, PMM Foundations, Brand & Content' },
   { name:'Dor Levi',     role:'Performance · PLG · AI',   photo:'https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg',   initials:'DL', expertise:'Performance Marketing, PLG, AI Tools' },
   { name:'Noa Bar',      role:'SEO · Brand · PMM',        photo:'https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg',  initials:'NB', expertise:'SEO / AEO, Brand & Content, PMM' },
   { name:'Avi Shapiro',  role:'Pricing · GTM · Hires',    photo:'https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg',  initials:'AS', expertise:'Pricing & Packaging, GTM Strategy, GTM Hires' },
-  { name:'Maya Stern',   role:'PMM · Sales · GTM',        photo:'https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg', initials:'MS', expertise:'PMM Foundations, Touch-Sales, GTM Strategy' },
-  { name:'Ron Katz',     role:'Growth · AI · PLG',        photo:'https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg',  initials:'RK', expertise:'Performance Marketing, AI Tools, PLG' }
+  { name:'Maya Stern',   role:'PMM · Sales · GTM',        photo:'https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg',  initials:'MS', expertise:'PMM Foundations, Touch-Sales, GTM Strategy' },
+  { name:'Ron Katz',     role:'Growth · AI · PLG',        photo:'https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg',  initials:'RK', expertise:'Performance Marketing, AI Tools, PLG' },
+  { name:'Tamar Eldar',  role:'GTM · Brand · Content',    photo:'https://v3b.fal.media/files/b/0a961a9b/MwM2L9gKgWVWTnoSgQBIy.jpg',  initials:'TE', expertise:'GTM Strategy, Brand & Content, PMM Foundations' },
+  { name:'Ben Amir',     role:'Performance · SEO · AI',   photo:'https://v3b.fal.media/files/b/0a961a9c/DANkz8q5yzj9Cg1vtEAwi.jpg',  initials:'BA', expertise:'Performance Marketing, SEO / AEO, AI Tools' },
+  { name:'Dana Mizrahi', role:'PLG · PMM · Analytics',    photo:'https://v3b.fal.media/files/b/0a961a9c/jkDwphk7l61-YsNwsLpIP.jpg',  initials:'DM', expertise:'PLG, PMM Foundations, AI Tools' },
+  { name:'Ilan Cohen',   role:'Pricing · Sales · GTM',    photo:'https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg',  initials:'IC', expertise:'Pricing & Packaging, Touch-Sales, GTM Strategy' },
+  { name:'Shira Gross',  role:'Growth · Brand · Hires',   photo:'https://v3b.fal.media/files/b/0a961a9d/n4Y6AnHDzhnzK5gjjfF12.jpg',  initials:'SG', expertise:'GTM Strategy, Brand & Content, GTM Hires & Team Design' },
 ];
 
 // Preload all photos so swaps are instant
