@@ -970,7 +970,7 @@
 
   <div class="hero-stats">
     <div class="hero-stats-inner">
-      <div class="stat"><div class="stat-n">12+</div><div class="stat-l">Senior advisors</div></div>
+      <div class="stat"><div class="stat-n" data-advisor-count="plus">11+</div><div class="stat-l">Senior advisors</div></div>
       <div class="stat"><div class="stat-n">1 hr</div><div class="stat-l">Focused session</div></div>
       <div class="stat"><div class="stat-n">10</div><div class="stat-l">GTM specializations</div></div>
       <div class="stat"><div class="stat-n">$0</div><div class="stat-l">Pro-bono</div></div>
@@ -1001,7 +1001,7 @@
           <div class="mission-visual-badge">
             <div class="mvb-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div class="mvb-text">
-              <p>12 advisors committed</p>
+              <p><span data-advisor-count="exact">11</span> advisors committed</p>
               <p>Sessions available now</p>
             </div>
           </div>
@@ -1052,7 +1052,7 @@
       <div>
         <div class="count-badge">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span id="visible-count">6</span> advisors available
+          <span id="visible-count" data-advisor-count="exact">11</span> advisors available
         </div>
         <p class="section-label" style="margin-bottom:6px">The Team</p>
         <h2 class="section-title" style="margin-bottom:0">Meet your advisors</h2>
@@ -1109,195 +1109,8 @@
       </div><!-- /filters-body -->
     </div>
 
-    <!-- Grid -->
+    <!-- Grid — cards rendered dynamically from ADVISORS array via JS -->
     <div class="advisors-grid" id="grid">
-
-      <!-- Card 1: Yael Cohen -->
-      <div class="card reveal reveal-d1"
-           data-expertise="GTM strategy,PMM foundations,Brand & content"
-           data-industries="SaaS B2B,B2C"
-           data-stages="Pre-Seed,Seed,Round A">
-        <div class="card-photo">
-          <img src="https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg" alt="Yael Cohen" loading="lazy"/>
-          <span class="card-industry-badge">SaaS B2B · B2C</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-name">Yael Cohen</h3>
-          <p class="card-role">Former VP Marketing, Wix · 14 years building GTM</p>
-          <div class="card-tags">
-            <span class="tag">GTM Strategy</span>
-            <span class="tag">PMM Foundations</span>
-            <span class="tag">Brand & Content</span>
-          </div>
-          <p class="card-meta"><strong>Best for:</strong> Pre-Seed · Seed · Round A</p>
-          <a href="https://linkedin.com/in/yaelcohen" target="_blank" rel="noopener" class="card-linkedin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/yaelcohen
-          </a>
-        </div>
-        <div class="card-footer">
-          <button class="btn-book" onclick="openModal('Yael Cohen','GTM Strategy, PMM Foundations, Brand & Content','YC','https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg')">
-            Request Free Hour
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 2: Dor Levi -->
-      <div class="card reveal reveal-d2"
-           data-expertise="Performance marketing,PLG,AI tools"
-           data-industries="SaaS B2B,B2C"
-           data-stages="Seed,Round A,Round B">
-        <div class="card-photo">
-          <img src="https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg" alt="Dor Levi" loading="lazy"/>
-          <span class="card-industry-badge">SaaS B2B · B2C</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-name">Dor Levi</h3>
-          <p class="card-role">Ex-CMO, monday.com · Built growth from 0→$100M ARR</p>
-          <div class="card-tags">
-            <span class="tag">Performance</span>
-            <span class="tag">PLG</span>
-            <span class="tag">AI Tools</span>
-          </div>
-          <p class="card-meta"><strong>Best for:</strong> Seed · Round A · Round B</p>
-          <a href="https://linkedin.com/in/dorlevi" target="_blank" rel="noopener" class="card-linkedin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/dorlevi
-          </a>
-        </div>
-        <div class="card-footer">
-          <button class="btn-book" onclick="openModal('Dor Levi','Performance Marketing, PLG, AI Tools','DL','https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg')">
-            Request Free Hour
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 3: Noa Bar -->
-      <div class="card reveal reveal-d3"
-           data-expertise="SEO / AEO,Brand & content,PMM foundations"
-           data-industries="eCommerce,SaaS B2B"
-           data-stages="Pre-Seed,Seed">
-        <div class="card-photo">
-          <img src="https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg" alt="Noa Bar" loading="lazy"/>
-          <span class="card-industry-badge">eCommerce · SaaS</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-name">Noa Bar</h3>
-          <p class="card-role">Former Head of Content, Fiverr · International SEO & Brand</p>
-          <div class="card-tags">
-            <span class="tag">SEO / AEO</span>
-            <span class="tag">Brand & Content</span>
-            <span class="tag">PMM</span>
-          </div>
-          <p class="card-meta"><strong>Best for:</strong> Pre-Seed · Seed</p>
-          <a href="https://linkedin.com/in/noabar" target="_blank" rel="noopener" class="card-linkedin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/noabar
-          </a>
-        </div>
-        <div class="card-footer">
-          <button class="btn-book" onclick="openModal('Noa Bar','SEO / AEO, Brand & Content, PMM','NB','https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg')">
-            Request Free Hour
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 4: Avi Shapiro -->
-      <div class="card reveal reveal-d4"
-           data-expertise="Pricing & packaging,GTM strategy,GTM hires"
-           data-industries="FinTech,Cyber,SaaS B2B"
-           data-stages="Round A,Round B,Round C">
-        <div class="card-photo">
-          <img src="https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg" alt="Avi Shapiro" loading="lazy"/>
-          <span class="card-industry-badge">FinTech · Cyber</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-name">Avi Shapiro</h3>
-          <p class="card-role">Venture Advisor, Viola Growth · 40+ startups, pricing & team design</p>
-          <div class="card-tags">
-            <span class="tag">Pricing</span>
-            <span class="tag">GTM Strategy</span>
-            <span class="tag">Team Design</span>
-          </div>
-          <p class="card-meta"><strong>Best for:</strong> Round A · Round B · Round C</p>
-          <a href="https://linkedin.com/in/avishapiro" target="_blank" rel="noopener" class="card-linkedin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/avishapiro
-          </a>
-        </div>
-        <div class="card-footer">
-          <button class="btn-book" onclick="openModal('Avi Shapiro','Pricing & Packaging, GTM Strategy, GTM Hires','AS','https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg')">
-            Request Free Hour
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 5: Maya Stern -->
-      <div class="card reveal reveal-d5"
-           data-expertise="PMM foundations,Touch-sales,GTM strategy"
-           data-industries="SaaS B2B,Cyber,DeepTech"
-           data-stages="Pre-Seed,Seed,Round A">
-        <div class="card-photo">
-          <img src="https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg" alt="Maya Stern" loading="lazy"/>
-          <span class="card-industry-badge">SaaS B2B · Cyber</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-name">Maya Stern</h3>
-          <p class="card-role">Ex-VP Product Marketing, Kaltura · ICP, messaging & sales enablement</p>
-          <div class="card-tags">
-            <span class="tag">PMM Foundations</span>
-            <span class="tag">Touch-Sales</span>
-            <span class="tag">GTM Strategy</span>
-          </div>
-          <p class="card-meta"><strong>Best for:</strong> Pre-Seed · Seed · Round A</p>
-          <a href="https://linkedin.com/in/mayastern" target="_blank" rel="noopener" class="card-linkedin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/mayastern
-          </a>
-        </div>
-        <div class="card-footer">
-          <button class="btn-book" onclick="openModal('Maya Stern','PMM Foundations, Touch-Sales, GTM Strategy','MS','https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg')">
-            Request Free Hour
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 6: Ron Katz -->
-      <div class="card reveal reveal-d6"
-           data-expertise="Performance marketing,AI tools,PLG"
-           data-industries="DeepTech,B2C,SaaS B2B"
-           data-stages="Seed,Round A,Round B">
-        <div class="card-photo">
-          <img src="https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg" alt="Ron Katz" loading="lazy"/>
-          <span class="card-industry-badge">DeepTech · B2C</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-name">Ron Katz</h3>
-          <p class="card-role">Former Growth Lead, Walla Media · AI-native marketing & growth loops</p>
-          <div class="card-tags">
-            <span class="tag">Performance</span>
-            <span class="tag">AI Tools</span>
-            <span class="tag">PLG</span>
-          </div>
-          <p class="card-meta"><strong>Best for:</strong> Seed · Round A · Round B</p>
-          <a href="https://linkedin.com/in/ronkatz" target="_blank" rel="noopener" class="card-linkedin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            linkedin.com/in/ronkatz
-          </a>
-        </div>
-        <div class="card-footer">
-          <button class="btn-book" onclick="openModal('Ron Katz','Performance Marketing, AI Tools, PLG','RK','https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg')">
-            Request Free Hour
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-
       <div id="empty">
         <p>No advisors match those filters — try removing one constraint.</p>
         <button id="empty-clear" onclick="clearAllFilters()">Clear all filters</button>
@@ -1417,22 +1230,147 @@
 <script>
 /* ── Advisor data (single source of truth for hero cycling + modal) ── */
 const ADVISORS = [
-  // Initial slot assignments mirror DOM order (JS bindSlot overwrites on load)
-  { name:'Yael Cohen',   role:'GTM · PMM · Brand',        photo:'https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg',  initials:'YC', expertise:'GTM Strategy, PMM Foundations, Brand & Content' },
-  { name:'Dor Levi',     role:'Performance · PLG · AI',   photo:'https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg',   initials:'DL', expertise:'Performance Marketing, PLG, AI Tools' },
-  { name:'Noa Bar',      role:'SEO · Brand · PMM',        photo:'https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg',  initials:'NB', expertise:'SEO / AEO, Brand & Content, PMM' },
-  { name:'Avi Shapiro',  role:'Pricing · GTM · Hires',    photo:'https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg',  initials:'AS', expertise:'Pricing & Packaging, GTM Strategy, GTM Hires' },
-  { name:'Maya Stern',   role:'PMM · Sales · GTM',        photo:'https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg',  initials:'MS', expertise:'PMM Foundations, Touch-Sales, GTM Strategy' },
-  { name:'Ron Katz',     role:'Growth · AI · PLG',        photo:'https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg',  initials:'RK', expertise:'Performance Marketing, AI Tools, PLG' },
-  { name:'Tamar Eldar',  role:'GTM · Brand · Content',    photo:'https://v3b.fal.media/files/b/0a961a9b/MwM2L9gKgWVWTnoSgQBIy.jpg',  initials:'TE', expertise:'GTM Strategy, Brand & Content, PMM Foundations' },
-  { name:'Ben Amir',     role:'Performance · SEO · AI',   photo:'https://v3b.fal.media/files/b/0a961a9c/DANkz8q5yzj9Cg1vtEAwi.jpg',  initials:'BA', expertise:'Performance Marketing, SEO / AEO, AI Tools' },
-  { name:'Dana Mizrahi', role:'PLG · PMM · Analytics',    photo:'https://v3b.fal.media/files/b/0a961a9c/jkDwphk7l61-YsNwsLpIP.jpg',  initials:'DM', expertise:'PLG, PMM Foundations, AI Tools' },
-  { name:'Ilan Cohen',   role:'Pricing · Sales · GTM',    photo:'https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg',  initials:'IC', expertise:'Pricing & Packaging, Touch-Sales, GTM Strategy' },
-  { name:'Shira Gross',  role:'Growth · Brand · Hires',   photo:'https://v3b.fal.media/files/b/0a961a9d/n4Y6AnHDzhnzK5gjjfF12.jpg',  initials:'SG', expertise:'GTM Strategy, Brand & Content, GTM Hires & Team Design' },
+  // ═══════════════════════════════════════════════════════════════
+  // SINGLE SOURCE OF TRUTH — edit here to add/remove/update advisors.
+  // Hero cloud, grid cards, and all counts derive from this array.
+  // ═══════════════════════════════════════════════════════════════
+  { name:'Yael Cohen',    role:'GTM · PMM · Brand',       bio:'Former VP Marketing, Wix · 14 years building GTM',
+    photo:'https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg', initials:'YC',
+    expertise:'GTM Strategy, PMM Foundations, Brand & Content',
+    linkedin:'https://linkedin.com/in/yaelcohen',
+    industries:['SaaS B2B','B2C'], stages:['Pre-Seed','Seed','Round A'] },
+
+  { name:'Dor Levi',      role:'Performance · PLG · AI',  bio:'Ex-CMO, monday.com · Built growth from 0→$100M ARR',
+    photo:'https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg', initials:'DL',
+    expertise:'Performance Marketing, PLG, AI Tools',
+    linkedin:'https://linkedin.com/in/dorlevi',
+    industries:['SaaS B2B','B2C'], stages:['Seed','Round A','Round B'] },
+
+  { name:'Noa Bar',       role:'SEO · Brand · PMM',       bio:'Former Head of Content, Fiverr · International SEO & Brand',
+    photo:'https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg', initials:'NB',
+    expertise:'SEO / AEO, Brand & Content, PMM Foundations',
+    linkedin:'https://linkedin.com/in/noabar',
+    industries:['eCommerce','SaaS B2B'], stages:['Pre-Seed','Seed'] },
+
+  { name:'Avi Shapiro',   role:'Pricing · GTM · Hires',   bio:'Venture Advisor, Viola Growth · 40+ startups, pricing & team design',
+    photo:'https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg', initials:'AS',
+    expertise:'Pricing & Packaging, GTM Strategy, GTM Hires',
+    linkedin:'https://linkedin.com/in/avishapiro',
+    industries:['FinTech','Cyber','SaaS B2B'], stages:['Round A','Round B','Round C'] },
+
+  { name:'Maya Stern',    role:'PMM · Sales · GTM',       bio:'Ex-VP Product Marketing, Kaltura · ICP, messaging & sales enablement',
+    photo:'https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg', initials:'MS',
+    expertise:'PMM Foundations, Touch-Sales, GTM Strategy',
+    linkedin:'https://linkedin.com/in/mayastern',
+    industries:['SaaS B2B','Cyber','DeepTech'], stages:['Pre-Seed','Seed','Round A'] },
+
+  { name:'Ron Katz',      role:'Growth · AI · PLG',       bio:'Former Growth Lead, Walla Media · AI-native marketing & growth loops',
+    photo:'https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg', initials:'RK',
+    expertise:'Performance Marketing, AI Tools, PLG',
+    linkedin:'https://linkedin.com/in/ronkatz',
+    industries:['DeepTech','B2C','SaaS B2B'], stages:['Seed','Round A','Round B'] },
+
+  { name:'Tamar Eldar',   role:'GTM · Brand · Content',   bio:'Ex-VP Brand, Gett · GTM architecture for 0-to-1 startups',
+    photo:'https://v3b.fal.media/files/b/0a961a9b/MwM2L9gKgWVWTnoSgQBIy.jpg', initials:'TE',
+    expertise:'GTM Strategy, Brand & Content, PMM Foundations',
+    linkedin:'https://linkedin.com/in/tamareldar',
+    industries:['SaaS B2B','B2C'], stages:['Pre-Seed','Seed'] },
+
+  { name:'Ben Amir',      role:'Performance · SEO · AI',  bio:'Former Head of Acquisition, Payoneer · Full-funnel performance & SEO',
+    photo:'https://v3b.fal.media/files/b/0a961a9c/DANkz8q5yzj9Cg1vtEAwi.jpg', initials:'BA',
+    expertise:'Performance Marketing, SEO / AEO, AI Tools',
+    linkedin:'https://linkedin.com/in/benamir',
+    industries:['FinTech','eCommerce','SaaS B2B'], stages:['Seed','Round A','Round B'] },
+
+  { name:'Dana Mizrahi',  role:'PLG · PMM · Analytics',   bio:'Ex-Growth Lead, Lemonade · PLG systems & product-led onboarding',
+    photo:'https://v3b.fal.media/files/b/0a961a9c/jkDwphk7l61-YsNwsLpIP.jpg', initials:'DM',
+    expertise:'PLG, PMM Foundations, AI Tools',
+    linkedin:'https://linkedin.com/in/danamizrahi',
+    industries:['B2C','SaaS B2B'], stages:['Pre-Seed','Seed','Round A'] },
+
+  { name:'Ilan Cohen',    role:'Pricing · Sales · GTM',   bio:'Venture Partner, Aleph · Enterprise sales motions & pricing strategy',
+    photo:'https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg', initials:'IC',
+    expertise:'Pricing & Packaging, Touch-Sales, GTM Strategy',
+    linkedin:'https://linkedin.com/in/ilancohen',
+    industries:['Cyber','SaaS B2B','DeepTech'], stages:['Round A','Round B','Round C'] },
+
+  { name:'Shira Gross',   role:'Growth · Brand · Hires',  bio:'Ex-CMO, Yotpo · Brand strategy, GTM hiring & org design',
+    photo:'https://v3b.fal.media/files/b/0a961a9d/n4Y6AnHDzhnzK5gjjfF12.jpg', initials:'SG',
+    expertise:'GTM Strategy, Brand & Content, GTM Hires & Team Design',
+    linkedin:'https://linkedin.com/in/shiragross',
+    industries:['eCommerce','SaaS B2B','B2C'], stages:['Seed','Round A','Round B'] },
 ];
 
 // Preload all photos so swaps are instant
 ADVISORS.forEach(a => { const i = new Image(); i.src = a.photo; });
+
+// ── Tag display shortening ──
+const TAG_SHORT = {
+  'Performance Marketing':'Performance', 'PMM Foundations':'PMM',
+  'Pricing & Packaging':'Pricing', 'GTM Hires & Team Design':'Team Design',
+  'GTM Hires':'Team Design'
+};
+function shortTag(t) { return TAG_SHORT[t] || t; }
+
+// ── Render all grid cards dynamically from ADVISORS ──
+function renderGrid() {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+
+  ADVISORS.forEach((a, i) => {
+    const d = (i % 6) + 1;
+    const card = document.createElement('div');
+    card.className = 'card reveal reveal-d' + d;
+    card.dataset.expertise  = a.expertise.toLowerCase();
+    card.dataset.industries = a.industries.join(',');
+    card.dataset.stages     = a.stages.join(',');
+
+    const tags = a.expertise.split(',').map(t => shortTag(t.trim()));
+    const handle = a.linkedin.split('/in/')[1] || '';
+    const badge  = a.industries.slice(0,2).join(' · ');
+    const stages = a.stages.join(' · ');
+    const svgLi  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>';
+    const svgArr = '<svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
+    card.innerHTML =
+      '<div class="card-photo">' +
+        '<img src="' + a.photo + '" alt="' + a.name + '" loading="lazy"/>' +
+        '<span class="card-industry-badge">' + badge + '</span>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<h3 class="card-name">' + a.name + '</h3>' +
+        '<p class="card-role">' + a.bio + '</p>' +
+        '<div class="card-tags">' + tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div>' +
+        '<p class="card-meta"><strong>Best for:</strong> ' + stages + '</p>' +
+        '<a href="' + a.linkedin + '" target="_blank" rel="noopener" class="card-linkedin">' +
+          svgLi + ' linkedin.com/in/' + handle +
+        '</a>' +
+      '</div>' +
+      '<div class="card-footer">' +
+        '<button class="btn-book">Request Free Hour ' + svgArr + '</button>' +
+      '</div>';
+
+    card.querySelector('.btn-book').onclick = function(e) {
+      e.stopPropagation();
+      openModal(a.name, a.expertise, a.initials, a.photo);
+    };
+
+    grid.insertBefore(card, empty);
+  });
+}
+
+// ── Update all dynamic advisor counts across the page ──
+function updateCounts() {
+  const n = ADVISORS.length;
+  document.querySelectorAll('[data-advisor-count]').forEach(el => {
+    const fmt = el.dataset.advisorCount;
+    el.textContent = fmt === 'plus' ? n + '+' : n;
+  });
+}
+
+// Run grid render immediately (DOM is ready — script is at page bottom)
+renderGrid();
+updateCounts();
 
 const hapSlots    = [];   // DOM elements
 const slotCurrent = [];   // slotCurrent[i] = ADVISORS index shown in slot i
@@ -1449,7 +1387,7 @@ function bindSlot(el, advisor) {
   role.textContent = advisor.role;
   const book = () => openModal(advisor.name, advisor.expertise, advisor.initials, advisor.photo);
   el.onclick = book;
-  btn.onclick = e => { e.stopPropagation(); book(); };
+  if (btn) btn.onclick = e => { e.stopPropagation(); book(); };
 }
 
 // Shimmer + bloom on the card coming in
@@ -1466,7 +1404,7 @@ function sparkCard(el) {
 }
 
 // Replace ONE slot with an advisor currently NOT shown.
-// 8 slots, 11 advisors → always 3 on the bench → visible change every cycle.
+// 8 slots, N advisors → (N-8) on the bench → visible change every cycle.
 function cycleOneSlot() {
   // Who's currently shown?
   const shown = new Set(slotCurrent);
@@ -1502,12 +1440,22 @@ function cycleOneSlot() {
 }
 
 function initHeroCycle() {
-  document.querySelectorAll('.hap').forEach((el, i) => {
+  // Shuffle advisor indices so each page load shows a random selection
+  const shuffled = ADVISORS.map((_, i) => i).sort(() => Math.random() - 0.5);
+  const slots = document.querySelectorAll('.hap');
+  const slotCount = Math.min(slots.length, ADVISORS.length);
+
+  slots.forEach((el, i) => {
+    if (i >= ADVISORS.length) { el.style.display = 'none'; return; }
     hapSlots.push(el);
-    slotCurrent.push(i);   // slots 0–7 start with advisors 0–7; 8–10 on the bench
-    bindSlot(el, ADVISORS[i]);
+    slotCurrent.push(shuffled[i]);
+    bindSlot(el, ADVISORS[shuffled[i]]);
   });
-  setTimeout(cycleOneSlot, 2000); // first replacement after 2 s
+
+  // Only cycle if we have more advisors than slots (bench pattern)
+  if (ADVISORS.length > hapSlots.length) {
+    setTimeout(cycleOneSlot, 2000);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', initHeroCycle);
@@ -1527,7 +1475,7 @@ reveals.forEach(el => io.observe(el));
 
 /* ── Filters ── */
 const filters = {expertise:'all', industry:'all', stage:'all'};
-const cards = document.querySelectorAll('.card');
+let cards = document.querySelectorAll('.card'); // re-queried after renderGrid
 const empty = document.getElementById('empty');
 const countEl = document.getElementById('visible-count');
 
