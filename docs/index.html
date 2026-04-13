@@ -342,18 +342,15 @@
   .hap-btn svg{width:10px;height:10px;fill:none;stroke:#0F172A;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
   .hap-sm .hap-btn{display:none}
 
-  /* Staggered entry animations — use hapIn, then float kicks in */
-  .hap:nth-child(1) {animation:hapIn .7s .18s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.3s .0s  ease-in-out infinite}
-  .hap:nth-child(2) {animation:hapIn .7s .25s cubic-bezier(.2,.8,.2,1) both,hapFloat 6.1s .6s  ease-in-out infinite}
-  .hap:nth-child(3) {animation:hapIn .7s .31s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.7s 1.2s ease-in-out infinite}
-  .hap:nth-child(4) {animation:hapIn .7s .37s cubic-bezier(.2,.8,.2,1) both,hapFloat 7.0s 2.1s ease-in-out infinite}
-  .hap:nth-child(5) {animation:hapIn .7s .43s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.5s 0.4s ease-in-out infinite}
-  .hap:nth-child(6) {animation:hapIn .7s .48s cubic-bezier(.2,.8,.2,1) both,hapFloat 6.4s 1.8s ease-in-out infinite}
-  .hap:nth-child(7) {animation:hapIn .7s .53s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.9s 0.9s ease-in-out infinite}
-  .hap:nth-child(8) {animation:hapIn .7s .58s cubic-bezier(.2,.8,.2,1) both,hapFloat 6.7s 2.7s ease-in-out infinite}
-  .hap:nth-child(9) {animation:hapIn .7s .63s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.2s 1.5s ease-in-out infinite}
-  .hap:nth-child(10){animation:hapIn .7s .68s cubic-bezier(.2,.8,.2,1) both,hapFloat 6.8s 0.3s ease-in-out infinite}
-  .hap:nth-child(11){animation:hapIn .7s .73s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.6s 2.4s ease-in-out infinite}
+  /* Staggered entry animations — 8 slots */
+  .hap:nth-child(1){animation:hapIn .7s .18s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.3s 0.0s ease-in-out infinite}
+  .hap:nth-child(2){animation:hapIn .7s .25s cubic-bezier(.2,.8,.2,1) both,hapFloat 6.1s 0.6s ease-in-out infinite}
+  .hap:nth-child(3){animation:hapIn .7s .31s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.7s 1.2s ease-in-out infinite}
+  .hap:nth-child(4){animation:hapIn .7s .38s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.5s 0.4s ease-in-out infinite}
+  .hap:nth-child(5){animation:hapIn .7s .44s cubic-bezier(.2,.8,.2,1) both,hapFloat 6.4s 1.8s ease-in-out infinite}
+  .hap:nth-child(6){animation:hapIn .7s .50s cubic-bezier(.2,.8,.2,1) both,hapFloat 5.9s 0.9s ease-in-out infinite}
+  .hap:nth-child(7){animation:hapIn .7s .56s cubic-bezier(.2,.8,.2,1) both,hapFloat 7.0s 2.1s ease-in-out infinite}
+  .hap:nth-child(8){animation:hapIn .7s .62s cubic-bezier(.2,.8,.2,1) both,hapFloat 6.7s 2.7s ease-in-out infinite}
 
   /* Stats strip */
   .hero-stats{
@@ -942,7 +939,7 @@
         <div class="hap-over"><p class="hap-name">Avi Shapiro</p><p class="hap-role">Pricing · GTM</p></div>
       </div>
 
-      <!-- Row 2: mid strip — 1 medium + 1 large + 1 medium + 1 small -->
+      <!-- Row 2: mid strip — 1 medium + 1 large + 1 medium -->
       <div class="hap hap-md" style="top:43%;left:0%;--rot:1.5deg;z-index:2;--ph:5;--fx:1;--fy:1" onclick="openModal('Maya Stern','PMM Foundations, Touch-Sales, GTM Strategy','MS','https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg')">
         <img src="https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg" alt="Maya Stern" loading="eager"/>
         <div class="hap-over"><p class="hap-name">Maya Stern</p><p class="hap-role">PMM · Sales · GTM</p></div>
@@ -961,26 +958,11 @@
         <button class="hap-btn" onclick="event.stopPropagation();openModal('Tamar Eldar','GTM Strategy, Brand &amp; Content, PMM Foundations','TE','https://v3b.fal.media/files/b/0a961a9b/MwM2L9gKgWVWTnoSgQBIy.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
       </div>
 
-      <div class="hap hap-sm" style="top:43%;left:82%;--rot:-2deg;z-index:1;--ph:4;--fx:-1;--fy:1">
-        <img src="https://v3b.fal.media/files/b/0a961a9c/DANkz8q5yzj9Cg1vtEAwi.jpg" alt="Ben Amir" loading="eager"/>
-        <div class="hap-over"><p class="hap-name">Ben Amir</p><p class="hap-role">Perf · SEO · AI</p></div>
-      </div>
-
       <!-- Row 3: bottom strip -->
-      <div class="hap hap-sm" style="top:70%;left:2%;--rot:1deg;z-index:1;--ph:7;--fx:1;--fy:1">
-        <img src="https://v3b.fal.media/files/b/0a961a9c/jkDwphk7l61-YsNwsLpIP.jpg" alt="Dana Mizrahi" loading="eager"/>
-        <div class="hap-over"><p class="hap-name">Dana Mizrahi</p><p class="hap-role">PLG · PMM</p></div>
-      </div>
-
       <div class="hap hap-md" style="top:67%;left:22%;--rot:-1.5deg;z-index:2;--ph:9;--fx:-1;--fy:-1" onclick="openModal('Ilan Cohen','Pricing & Packaging, Touch-Sales, GTM Strategy','IC','https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg')">
         <img src="https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg" alt="Ilan Cohen" loading="eager"/>
         <div class="hap-over"><p class="hap-name">Ilan Cohen</p><p class="hap-role">Pricing · Sales · GTM</p></div>
         <button class="hap-btn" onclick="event.stopPropagation();openModal('Ilan Cohen','Pricing &amp; Packaging, Touch-Sales, GTM Strategy','IC','https://v3b.fal.media/files/b/0a961a9d/sgN106lkh3M9nU056UHLq.jpg')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book</button>
-      </div>
-
-      <div class="hap hap-sm" style="top:71%;left:62%;--rot:2.5deg;z-index:1;--ph:2;--fx:1;--fy:-1">
-        <img src="https://v3b.fal.media/files/b/0a961a9d/n4Y6AnHDzhnzK5gjjfF12.jpg" alt="Shira Gross" loading="eager"/>
-        <div class="hap-over"><p class="hap-name">Shira Gross</p><p class="hap-role">Growth · Hires</p></div>
       </div>
 
     </div><!-- /hero-right -->
@@ -1470,66 +1452,62 @@ function bindSlot(el, advisor) {
   btn.onclick = e => { e.stopPropagation(); book(); };
 }
 
-// Inject shimmer element and trigger bloom border on a card coming back in
+// Shimmer + bloom on the card coming in
 function sparkCard(el) {
-  // Remove any old shimmer
   const old = el.querySelector('.hap-shimmer');
   if (old) old.remove();
-  // Inject fresh shimmer
   const shim = document.createElement('div');
   shim.className = 'hap-shimmer';
   el.appendChild(shim);
-  // Bloom border class
   el.classList.remove('blooming');
-  void el.offsetWidth; // force reflow so animation restarts
+  void el.offsetWidth; // force animation restart
   el.classList.add('blooming');
-  // Clean up after animation
-  setTimeout(() => {
-    shim.remove();
-    el.classList.remove('blooming');
-  }, 1100);
+  setTimeout(() => { shim.remove(); el.classList.remove('blooming'); }, 1100);
 }
 
-// Swap two random slots — swap-pairs algorithm: zero duplicates possible
-function cycleRandomPair() {
-  let a = Math.floor(Math.random() * hapSlots.length);
-  let b;
-  do { b = Math.floor(Math.random() * hapSlots.length); } while (b === a);
+// Replace ONE slot with an advisor currently NOT shown.
+// 8 slots, 11 advisors → always 3 on the bench → visible change every cycle.
+function cycleOneSlot() {
+  // Who's currently shown?
+  const shown = new Set(slotCurrent);
+  // Who's waiting on the bench?
+  const bench = ADVISORS.map((_,i) => i).filter(i => !shown.has(i));
 
-  // Respect hover — try again shortly
-  if (hapSlots[a].matches(':hover') || hapSlots[b].matches(':hover')) {
-    setTimeout(cycleRandomPair, 900);
-    return;
-  }
+  // If somehow everyone is visible, wait and retry
+  if (!bench.length) { setTimeout(cycleOneSlot, 800); return; }
+
+  // Pick a slot that isn't hovered
+  const candidates = hapSlots.map((_,i) => i).filter(i => !hapSlots[i].matches(':hover'));
+  if (!candidates.length) { setTimeout(cycleOneSlot, 600); return; }
+
+  const slotIdx   = candidates[Math.floor(Math.random() * candidates.length)];
+  const newAdvisor = bench[Math.floor(Math.random() * bench.length)];
+  const el = hapSlots[slotIdx];
 
   // Phase 1: cinematic focus-pull out
-  hapSlots[a].classList.add('cycling');
-  hapSlots[b].classList.add('cycling');
+  el.classList.add('cycling');
 
   setTimeout(() => {
-    // Swap advisor indices
-    [slotCurrent[a], slotCurrent[b]] = [slotCurrent[b], slotCurrent[a]];
-    bindSlot(hapSlots[a], ADVISORS[slotCurrent[a]]);
-    bindSlot(hapSlots[b], ADVISORS[slotCurrent[b]]);
+    // Swap in the bench advisor
+    slotCurrent[slotIdx] = newAdvisor;
+    bindSlot(el, ADVISORS[newAdvisor]);
 
-    // Phase 2: fade + bloom back in
-    hapSlots[a].classList.remove('cycling');
-    hapSlots[b].classList.remove('cycling');
-    sparkCard(hapSlots[a]);
-    sparkCard(hapSlots[b]);
+    // Phase 2: bloom back in
+    el.classList.remove('cycling');
+    sparkCard(el);
 
-    // Schedule next
-    setTimeout(cycleRandomPair, 1800 + Math.random() * 2000);
-  }, 460);
+    // Next replacement in 1.8–3 s — fast enough to see, slow enough to appreciate
+    setTimeout(cycleOneSlot, 1800 + Math.random() * 1200);
+  }, 480);
 }
 
 function initHeroCycle() {
   document.querySelectorAll('.hap').forEach((el, i) => {
     hapSlots.push(el);
-    slotCurrent.push(i);                  // slot i starts with advisor i
+    slotCurrent.push(i);   // slots 0–7 start with advisors 0–7; 8–10 on the bench
     bindSlot(el, ADVISORS[i]);
   });
-  setTimeout(cycleRandomPair, 2200);      // first swap after 2.2 s
+  setTimeout(cycleOneSlot, 2000); // first replacement after 2 s
 }
 
 document.addEventListener('DOMContentLoaded', initHeroCycle);
