@@ -203,7 +203,13 @@
     aspect-ratio:3/4;
     cursor:pointer;
     border:1px solid rgba(255,255,255,.1);
-    transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .25s;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .25s,opacity .38s ease;
+  }
+  /* State during advisor swap */
+  .hap.cycling{
+    opacity:0;
+    transform:scale(.95) translateY(4px);
+    pointer-events:none;
   }
   /* Stagger even-column cards down for depth */
   .hap:nth-child(even){margin-top:22px}
@@ -1236,6 +1242,75 @@
 </div>
 
 <script>
+/* ── Advisor data (single source of truth for hero cycling + modal) ── */
+const ADVISORS = [
+  { name:'Yael Cohen',   role:'GTM · PMM · Brand',        photo:'https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg',  initials:'YC', expertise:'GTM Strategy, PMM Foundations, Brand & Content' },
+  { name:'Dor Levi',     role:'Performance · PLG · AI',   photo:'https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg',   initials:'DL', expertise:'Performance Marketing, PLG, AI Tools' },
+  { name:'Noa Bar',      role:'SEO · Brand · PMM',        photo:'https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg',  initials:'NB', expertise:'SEO / AEO, Brand & Content, PMM' },
+  { name:'Avi Shapiro',  role:'Pricing · GTM · Hires',    photo:'https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg',  initials:'AS', expertise:'Pricing & Packaging, GTM Strategy, GTM Hires' },
+  { name:'Maya Stern',   role:'PMM · Sales · GTM',        photo:'https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg', initials:'MS', expertise:'PMM Foundations, Touch-Sales, GTM Strategy' },
+  { name:'Ron Katz',     role:'Growth · AI · PLG',        photo:'https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg',  initials:'RK', expertise:'Performance Marketing, AI Tools, PLG' }
+];
+
+// Preload all photos so swaps are instant
+ADVISORS.forEach(a => { const i = new Image(); i.src = a.photo; });
+
+const hapSlots   = [];   // DOM elements
+const slotCurrent = [];  // which ADVISORS index is live in each slot
+
+function bindSlot(el, advisor) {
+  const img  = el.querySelector('img');
+  const name = el.querySelector('.hap-name');
+  const role = el.querySelector('.hap-role');
+  const btn  = el.querySelector('.hap-btn');
+  img.src  = advisor.photo;
+  img.alt  = advisor.name;
+  name.textContent = advisor.name;
+  role.textContent = advisor.role;
+  const book = () => openModal(advisor.name, advisor.expertise, advisor.initials, advisor.photo);
+  el.onclick = book;
+  btn.onclick = e => { e.stopPropagation(); book(); };
+}
+
+function scheduleSlot(slotIdx) {
+  // Random interval 2.4–4.2 s so slots feel independent
+  const delay = 2400 + Math.random() * 1800;
+  setTimeout(() => cycleSlot(slotIdx), delay);
+}
+
+function cycleSlot(slotIdx) {
+  const el = hapSlots[slotIdx];
+
+  // Skip if user is hovering — try again in 1.2 s
+  if (el.matches(':hover')) { setTimeout(() => cycleSlot(slotIdx), 1200); return; }
+
+  // Pick a new advisor different from the current one in this slot
+  let next;
+  do { next = Math.floor(Math.random() * ADVISORS.length); }
+  while (next === slotCurrent[slotIdx]);
+
+  // Fade out → swap → fade in
+  el.classList.add('cycling');
+  setTimeout(() => {
+    slotCurrent[slotIdx] = next;
+    bindSlot(el, ADVISORS[next]);
+    el.classList.remove('cycling');
+    scheduleSlot(slotIdx);   // queue the NEXT swap after fade-in completes
+  }, 400);  // matches opacity transition duration
+}
+
+function initHeroCycle() {
+  document.querySelectorAll('.hap').forEach((el, i) => {
+    hapSlots.push(el);
+    slotCurrent.push(i % ADVISORS.length);   // initial assignment
+    bindSlot(el, ADVISORS[i % ADVISORS.length]);
+    // Stagger initial start so they don't all swap at once
+    setTimeout(() => scheduleSlot(i), 1800 + i * 320);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initHeroCycle);
+
 /* ── Nav scroll ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
