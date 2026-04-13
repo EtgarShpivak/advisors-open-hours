@@ -1293,8 +1293,9 @@ const ADVISORS = [
 // Preload all photos so swaps are instant
 ADVISORS.forEach(a => { const i = new Image(); i.src = a.photo; });
 
-const hapSlots   = [];   // DOM elements
-const slotCurrent = [];  // which ADVISORS index is live in each slot
+const hapSlots    = [];   // DOM elements
+const slotCurrent = [];   // slotCurrent[i] = ADVISORS index shown in slot i
+                          // Always a valid permutation → ZERO duplicates possible
 
 function bindSlot(el, advisor) {
   const img  = el.querySelector('img');
@@ -1310,41 +1311,41 @@ function bindSlot(el, advisor) {
   btn.onclick = e => { e.stopPropagation(); book(); };
 }
 
-function scheduleSlot(slotIdx) {
-  // Random interval 2.4–4.2 s so slots feel independent
-  const delay = 2400 + Math.random() * 1800;
-  setTimeout(() => cycleSlot(slotIdx), delay);
-}
+// Swap two random slots — guarantees permutation is maintained (no duplicates ever)
+function cycleRandomPair() {
+  let a = Math.floor(Math.random() * hapSlots.length);
+  let b;
+  do { b = Math.floor(Math.random() * hapSlots.length); } while (b === a);
 
-function cycleSlot(slotIdx) {
-  const el = hapSlots[slotIdx];
+  // Respect hover — try again shortly
+  if (hapSlots[a].matches(':hover') || hapSlots[b].matches(':hover')) {
+    setTimeout(cycleRandomPair, 900);
+    return;
+  }
 
-  // Skip if user is hovering — try again in 1.2 s
-  if (el.matches(':hover')) { setTimeout(() => cycleSlot(slotIdx), 1200); return; }
+  // Fade both cards out
+  hapSlots[a].classList.add('cycling');
+  hapSlots[b].classList.add('cycling');
 
-  // Pick a new advisor different from the current one in this slot
-  let next;
-  do { next = Math.floor(Math.random() * ADVISORS.length); }
-  while (next === slotCurrent[slotIdx]);
-
-  // Fade out → swap → fade in
-  el.classList.add('cycling');
   setTimeout(() => {
-    slotCurrent[slotIdx] = next;
-    bindSlot(el, ADVISORS[next]);
-    el.classList.remove('cycling');
-    scheduleSlot(slotIdx);   // queue the NEXT swap after fade-in completes
-  }, 400);  // matches opacity transition duration
+    // Swap advisor indices between the two slots
+    [slotCurrent[a], slotCurrent[b]] = [slotCurrent[b], slotCurrent[a]];
+    bindSlot(hapSlots[a], ADVISORS[slotCurrent[a]]);
+    bindSlot(hapSlots[b], ADVISORS[slotCurrent[b]]);
+    hapSlots[a].classList.remove('cycling');
+    hapSlots[b].classList.remove('cycling');
+    // Schedule next pair swap
+    setTimeout(cycleRandomPair, 1600 + Math.random() * 1600);
+  }, 380);
 }
 
 function initHeroCycle() {
   document.querySelectorAll('.hap').forEach((el, i) => {
     hapSlots.push(el);
-    slotCurrent.push(i % ADVISORS.length);   // initial assignment
-    bindSlot(el, ADVISORS[i % ADVISORS.length]);
-    // Stagger initial start so they don't all swap at once
-    setTimeout(() => scheduleSlot(i), 1800 + i * 320);
+    slotCurrent.push(i);                  // slot i starts with advisor i
+    bindSlot(el, ADVISORS[i]);
   });
+  setTimeout(cycleRandomPair, 2200);      // first swap after 2.2 s
 }
 
 document.addEventListener('DOMContentLoaded', initHeroCycle);
