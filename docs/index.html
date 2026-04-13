@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advisors Open Hours — Free Marketing Consulting for Israeli Startups</title>
+  <meta name="description" content="Get one free hour of expert GTM, growth, and marketing advice from senior professionals who've built Israel's biggest success stories." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Tokens ─────────────────────────────────────────── */
+    :root {
+      --bg:           #FAFAF7;
+      --surface:      #FFFFFF;
+      --ink:          #0D0D0D;
+      --ink-muted:    #5C5C5C;
+      --ink-faint:    #B0AFA8;
+      --border:       #E4E3DC;
+      --accent:       #E8480A;
+      --accent-hover: #C73C07;
+      --accent-tint:  #FFF2ED;
+      --navy:         #0D1B2A;
+      --tag-bg:       #EFEDE6;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --radius:       12px;
+      --shadow-sm:    0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:    0 4px 16px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.04);
+      --shadow-lg:    0 20px 60px rgba(0,0,0,.14), 0 8px 20px rgba(0,0,0,.08);
+    }
+
+    /* ── Base ─────────────────────────────────────────── */
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Navigation ──────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 250, 247, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-mark {
+      width: 34px;
+      height: 34px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-mark svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 17px;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+
+    .nav-logo-text span {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 100px;
+      transition: background .2s, transform .15s;
+    }
+
+    .nav-cta:hover {
+      background: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      padding: 96px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(232,72,10,.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(13,27,42,.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-tint);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      animation: fadeUp .6s ease both;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+      color: var(--ink);
+      max-width: 760px;
+      margin-bottom: 24px;
+      animation: fadeUp .7s .1s ease both;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--ink-muted);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      animation: fadeUp .7s .2s ease both;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp .7s .3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(232,72,10,.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(232,72,10,.4);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--ink-faint);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-note svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      animation: fadeUp .7s .4s ease both;
+    }
+
+    .stat-item {}
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── How It Works ─────────────────────────────────── */
+    .how {
+      padding: 80px 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,.015) 40px,
+        rgba(255,255,255,.015) 41px
+      );
+    }
+
+    .how-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .how .section-label { color: rgba(255,255,255,.45); }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      margin-bottom: 48px;
+    }
+
+    .how .section-title { color: white; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .step {
+      padding: 40px 36px;
+      background: rgba(255,255,255,.04);
+      position: relative;
+      transition: background .2s;
+    }
+
+    .step:hover { background: rgba(255,255,255,.07); }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 72px;
+      color: rgba(255,255,255,.06);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -.04em;
+    }
+
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .step-icon svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.7;
+    }
+
+    /* ── Advisors ─────────────────────────────────────── */
+    .advisors {
+      padding: 96px 0;
+    }
+
+    .advisors-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 14px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: white;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .filter-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-tint);
+    }
+
+    .filter-chip.active {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: white;
+    }
+
+    .advisors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .advisor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s, box-shadow .25s, border-color .2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .advisor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(232,72,10,.2);
+    }
+
+    .advisor-card.hidden { display: none; }
+
+    .advisor-photo-wrap {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--tag-bg);
+    }
+
+    .advisor-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+
+    .advisor-card:hover .advisor-photo-wrap img {
+      transform: scale(1.04);
+    }
+
+    .advisor-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--ink-faint);
+      background: linear-gradient(135deg, #EEECe6 0%, #E5E2D8 100%);
+    }
+
+    .advisor-body {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .advisor-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 4px;
+      letter-spacing: -.01em;
+    }
+
+    .advisor-title {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .advisor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: var(--tag-bg);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      letter-spacing: .01em;
+    }
+
+    .advisor-stages {
+      font-size: 12px;
+      color: var(--ink-faint);
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .advisor-stages strong { color: var(--ink-muted); font-weight: 500; }
+
+    .btn-request {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      width: 100%;
+      padding: 11px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: white;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .btn-request svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+
+    .btn-request:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      box-shadow: 0 4px 16px rgba(232,72,10,.25);
+    }
+
+    .btn-request:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ── Empty state ─────────────────────────────────── */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      display: none;
+    }
+
+    .empty-state.visible { display: block; }
+
+    .empty-state p {
+      font-size: 15px;
+      color: var(--ink-faint);
+    }
+
+    /* ── Modal ─────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(24px) scale(.97);
+      transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .modal-advisor-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .modal-advisor-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--tag-bg);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .modal-advisor-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .modal-advisor-avatar-placeholder {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--tag-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--ink-faint);
+      flex-shrink: 0;
+    }
+
+    .modal-requesting {
+      font-size: 12px;
+      color: var(--ink-faint);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .modal-advisor-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+
+    .modal-close:hover { background: var(--border); }
+    .modal-close svg { width: 14px; height: 14px; stroke: var(--ink-muted); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+
+    .modal-body { padding: 24px 28px 28px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--ink);
+      background: white;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232,72,10,.1);
+    }
+
+    textarea { resize: vertical; min-height: 88px; }
+
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235C5C5C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+
+    .modal-footer {
+      padding: 0 28px 28px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-submit {
+      flex: 1;
+      padding: 13px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(232,72,10,.25);
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(232,72,10,.35);
+    }
+
+    /* ── Success State ─────────────────────────────────── */
+    .modal-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 52px 40px 44px;
+    }
+
+    .modal-success.visible { display: flex; }
+    .modal-form-content { }
+    .modal-form-content.hidden { display: none; }
+
+    .success-icon {
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, #FF6B2B, #E8480A);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(232,72,10,.35);
+    }
+
+    .success-icon svg { width: 30px; height: 30px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .success-desc {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .success-close {
+      margin-top: 28px;
+      padding: 10px 28px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: white;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .success-close:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.5);
+      padding: 48px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: rgba(255,255,255,.7);
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-note {
+      font-size: 13px;
+    }
+
+    .footer-heart { color: var(--accent); }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      .advisors-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; gap: 1px; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 64px 0 56px; }
+      .advisors-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal { border-radius: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="nav-logo-mark">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <span class="nav-logo-text">Advisors <span>Open Hours</span></span>
+        </div>
+        <a href="#advisors" class="nav-cta">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Book a Free Hour
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Free for Israeli Startups
+      </div>
+      <h1 class="hero-headline">Get <em>expert marketing</em> advice. No strings attached.</h1>
+      <p class="hero-sub">
+        One hour. Senior GTM professionals. Zero cost.
+        We're a group of marketing leaders who've built Israel's top SaaS companies —
+        and we want to help the next generation.
+      </p>
+      <div class="hero-actions">
+        <a href="#advisors" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Your Free Hour
+        </a>
+        <span class="hero-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No pitch. No follow-up sales.
+        </span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Senior advisors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1hr</div>
+          <div class="stat-label">Free, focused session</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10</div>
+          <div class="stat-label">GTM specializations</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$0</div>
+          <div class="stat-label">Cost to startups</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how">
+    <div class="container">
+      <div class="how-inner">
+        <p class="section-label">Process</p>
+        <h2 class="section-title">Three steps to your free session</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <h3 class="step-title">Browse & Filter</h3>
+            <p class="step-desc">Explore our advisors by expertise area. Filter by what you actually need — GTM, SEO, pricing, PLG, or sales.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </div>
+            <h3 class="step-title">Submit a Request</h3>
+            <p class="step-desc">Tell us about your company, stage, and what you're struggling with. The more context, the better the session.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.15 3.43 2 2 0 0 1 3.12 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+            </div>
+            <h3 class="step-title">Get Your Hour</h3>
+            <p class="step-desc">Your advisor reviews your request and confirms the session. You'll connect directly to schedule a time that works.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisors -->
+  <section class="advisors" id="advisors">
+    <div class="container">
+      <div class="advisors-header">
+        <div>
+          <p class="section-label">The Team</p>
+          <h2 class="section-title">Meet your advisors</h2>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="GTM strategy">GTM Strategy</button>
+        <button class="filter-chip" data-filter="Performance marketing">Performance</button>
+        <button class="filter-chip" data-filter="SEO / AEO">SEO / AEO</button>
+        <button class="filter-chip" data-filter="PLG">PLG</button>
+        <button class="filter-chip" data-filter="Pricing & packaging">Pricing</button>
+        <button class="filter-chip" data-filter="PMM foundations">PMM</button>
+        <button class="filter-chip" data-filter="Brand & content">Brand</button>
+        <button class="filter-chip" data-filter="AI tools">AI Tools</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="advisors-grid" id="advisors-grid">
+
+        <!-- Advisor 1 -->
+        <div class="advisor-card"
+             data-tags="GTM strategy,PMM foundations,Brand & content"
+             data-stages="Pre-Seed,Seed,Round A">
+          <div class="advisor-photo-wrap">
+            <div class="advisor-photo-placeholder">YC</div>
+          </div>
+          <div class="advisor-body">
+            <h3 class="advisor-name">Yael Cohen</h3>
+            <p class="advisor-title">Former VP Marketing, Wix · 12 years in GTM</p>
+            <div class="advisor-tags">
+              <span class="tag">GTM Strategy</span>
+              <span class="tag">PMM Foundations</span>
+              <span class="tag">Brand & Content</span>
+            </div>
+            <p class="advisor-stages"><strong>Best for:</strong> Pre-Seed · Seed · Round A</p>
+            <button class="btn-request" onclick="openModal('Yael Cohen', 'GTM Strategy, PMM Foundations, Brand & Content', 'YC')">
+              Request Free Hour
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 2 -->
+        <div class="advisor-card"
+             data-tags="Performance marketing,PLG,AI tools"
+             data-stages="Seed,Round A,Round B">
+          <div class="advisor-photo-wrap">
+            <div class="advisor-photo-placeholder">DL</div>
+          </div>
+          <div class="advisor-body">
+            <h3 class="advisor-name">Dor Levi</h3>
+            <p class="advisor-title">Ex-CMO, monday.com · Built growth from 0 to $100M ARR</p>
+            <div class="advisor-tags">
+              <span class="tag">Performance</span>
+              <span class="tag">PLG</span>
+              <span class="tag">AI Tools</span>
+            </div>
+            <p class="advisor-stages"><strong>Best for:</strong> Seed · Round A · Round B</p>
+            <button class="btn-request" onclick="openModal('Dor Levi', 'Performance Marketing, PLG, AI Tools', 'DL')">
+              Request Free Hour
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 3 -->
+        <div class="advisor-card"
+             data-tags="SEO / AEO,Brand & content,PMM foundations"
+             data-stages="Pre-Seed,Seed">
+          <div class="advisor-photo-wrap">
+            <div class="advisor-photo-placeholder">NB</div>
+          </div>
+          <div class="advisor-body">
+            <h3 class="advisor-name">Noa Bar</h3>
+            <p class="advisor-title">Former Head of Content, Fiverr · B2B SaaS SEO expert</p>
+            <div class="advisor-tags">
+              <span class="tag">SEO / AEO</span>
+              <span class="tag">Brand & Content</span>
+              <span class="tag">PMM</span>
+            </div>
+            <p class="advisor-stages"><strong>Best for:</strong> Pre-Seed · Seed</p>
+            <button class="btn-request" onclick="openModal('Noa Bar', 'SEO / AEO, Brand & Content, PMM', 'NB')">
+              Request Free Hour
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 4 -->
+        <div class="advisor-card"
+             data-tags="Pricing & packaging,GTM strategy,GTM hires & team design"
+             data-stages="Round A,Round B,Round C">
+          <div class="advisor-photo-wrap">
+            <div class="advisor-photo-placeholder">AS</div>
+          </div>
+          <div class="advisor-body">
+            <h3 class="advisor-name">Avi Shapiro</h3>
+            <p class="advisor-title">Venture Advisor, Viola Growth · 40+ startups advised</p>
+            <div class="advisor-tags">
+              <span class="tag">Pricing</span>
+              <span class="tag">GTM Strategy</span>
+              <span class="tag">Team Design</span>
+            </div>
+            <p class="advisor-stages"><strong>Best for:</strong> Round A · Round B · Round C</p>
+            <button class="btn-request" onclick="openModal('Avi Shapiro', 'Pricing & Packaging, GTM Strategy, Team Design', 'AS')">
+              Request Free Hour
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 5 -->
+        <div class="advisor-card"
+             data-tags="PMM foundations,Touch-sales,GTM strategy"
+             data-stages="Pre-Seed,Seed,Round A">
+          <div class="advisor-photo-wrap">
+            <div class="advisor-photo-placeholder">MS</div>
+          </div>
+          <div class="advisor-body">
+            <h3 class="advisor-name">Maya Stern</h3>
+            <p class="advisor-title">Ex-VP Product Marketing, Kaltura · ICP & messaging specialist</p>
+            <div class="advisor-tags">
+              <span class="tag">PMM Foundations</span>
+              <span class="tag">Touch-Sales</span>
+              <span class="tag">GTM Strategy</span>
+            </div>
+            <p class="advisor-stages"><strong>Best for:</strong> Pre-Seed · Seed · Round A</p>
+            <button class="btn-request" onclick="openModal('Maya Stern', 'PMM Foundations, Touch-Sales, GTM Strategy', 'MS')">
+              Request Free Hour
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Advisor 6 -->
+        <div class="advisor-card"
+             data-tags="Performance marketing,AI tools,PLG"
+             data-stages="Seed,Round A,Round B">
+          <div class="advisor-photo-wrap">
+            <div class="advisor-photo-placeholder">RK</div>
+          </div>
+          <div class="advisor-body">
+            <h3 class="advisor-name">Ron Katz</h3>
+            <p class="advisor-title">Former Growth Lead, Walla · AI-native marketing builder</p>
+            <div class="advisor-tags">
+              <span class="tag">Performance</span>
+              <span class="tag">AI Tools</span>
+              <span class="tag">PLG</span>
+            </div>
+            <p class="advisor-stages"><strong>Best for:</strong> Seed · Round A · Round B</p>
+            <button class="btn-request" onclick="openModal('Ron Katz', 'Performance Marketing, AI Tools, PLG', 'RK')">
+              Request Free Hour
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="empty-state">
+          <p>No advisors match this filter. Try a different specialization.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Advisors <span>Open Hours</span></div>
+        <p class="footer-note">Made with <span class="footer-heart">♥</span> by Israeli marketing leaders, for the next wave of Israeli startups.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Request Modal -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal" role="dialog" aria-modal="true">
+
+      <!-- Success state -->
+      <div class="modal-success" id="modal-success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="success-title">Request sent!</h3>
+        <p class="success-desc">
+          Your request has been submitted. Your advisor will review it and reach out within 48 hours to confirm the session.
+        </p>
+        <button class="success-close" onclick="closeModal()">Close</button>
+      </div>
+
+      <!-- Form content -->
+      <div class="modal-form-content" id="modal-form-content">
+        <div class="modal-header">
+          <div class="modal-advisor-row">
+            <div class="modal-advisor-avatar-placeholder" id="modal-avatar"></div>
+            <div>
+              <p class="modal-requesting">Requesting a session with</p>
+              <h2 class="modal-advisor-name" id="modal-advisor-name">Advisor Name</h2>
+            </div>
+          </div>
+          <button class="modal-close" onclick="closeModal()" aria-label="Close">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="field-name">Your Name *</label>
+              <input type="text" id="field-name" placeholder="Jane Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="field-company">Company *</label>
+              <input type="text" id="field-company" placeholder="Acme Inc." required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="field-desc">What does your company do? *</label>
+            <textarea id="field-desc" placeholder="Brief description — one or two sentences is fine." required></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="field-linkedin">Your LinkedIn *</label>
+              <input type="url" id="field-linkedin" placeholder="linkedin.com/in/janedoe" required />
+            </div>
+            <div class="form-group">
+              <label for="field-stage">Company Stage *</label>
+              <select id="field-stage" required>
+                <option value="" disabled selected>Select stage</option>
+                <option>Pre-Seed</option>
+                <option>Seed</option>
+                <option>Round A</option>
+                <option>Round B</option>
+                <option>Round C</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="field-arr">ARR</label>
+            <select id="field-arr">
+              <option value="" disabled selected>Select ARR</option>
+              <option>Pre-revenue</option>
+              <option>Under $10K</option>
+              <option>$10K – $100K</option>
+              <option>$100K – $1M</option>
+              <option>$1M+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="field-help">What do you need help with? *</label>
+            <textarea id="field-help" placeholder="Be specific — the more context you share, the more valuable the session will be." required></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-submit" onclick="submitRequest()">Send Request →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /* ── Filtering ─────────────────────────────────────── */
+    const chips = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('.advisor-card');
+    const empty = document.getElementById('empty-state');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        let visible = 0;
+        cards.forEach(card => {
+          const tags = card.dataset.tags || '';
+          const show = filter === 'all' || tags.toLowerCase().includes(filter.toLowerCase());
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        empty.classList.toggle('visible', visible === 0);
+      });
+    });
+
+    /* ── Modal ─────────────────────────────────────────── */
+    let currentAdvisor = {};
+
+    function openModal(name, expertise, initials) {
+      currentAdvisor = { name, expertise, initials };
+      document.getElementById('modal-advisor-name').textContent = name;
+      document.getElementById('modal-avatar').textContent = initials;
+      document.getElementById('modal-success').classList.remove('visible');
+      document.getElementById('modal-form-content').classList.remove('hidden');
+      document.getElementById('modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Reset form
+      ['field-name','field-company','field-desc','field-linkedin','field-help'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      ['field-stage','field-arr'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.selectedIndex = 0;
+      });
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    }
+
+    function submitRequest() {
+      const required = ['field-name','field-company','field-desc','field-linkedin','field-stage','field-help'];
+      let valid = true;
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderColor = '#E8480A';
+          el.style.boxShadow = '0 0 0 3px rgba(232,72,10,.12)';
+          valid = false;
+          el.addEventListener('input', () => {
+            el.style.borderColor = '';
+            el.style.boxShadow = '';
+          }, { once: true });
+        }
+      });
+      if (!valid) return;
+      // Show success
+      document.getElementById('modal-form-content').classList.add('hidden');
+      document.getElementById('modal-success').classList.add('visible');
+    }
+
+    // ESC key closes modal
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+
+</body>
+</html>
