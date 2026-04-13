@@ -93,7 +93,6 @@
   .nav.scrolled{background:rgba(15,23,42,.97);border-bottom:1px solid rgba(56,189,248,.12)}
   .nav.scrolled .nav-logo-text{color:var(--ink)}
   .nav.scrolled .nav-logo-mark{background:var(--blue)}
-  .nav.scrolled .nav-cta{background:var(--blue);color:#0F172A}
 
   .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
   .nav-logo-mark{
@@ -114,13 +113,15 @@
 
   .nav-cta{
     display:inline-flex;align-items:center;gap:6px;
-    background:var(--blue);color:#0F172A;
+    background:transparent;color:rgba(255,255,255,.88);
+    border:1.5px solid rgba(255,255,255,.4);
     font-size:13px;font-weight:700;
-    padding:9px 20px;border-radius:100px;
-    transition:background .2s,transform .15s,box-shadow .2s;
-    box-shadow:0 3px 14px var(--cta-glow);
+    padding:8px 20px;border-radius:100px;
+    transition:background .2s,border-color .2s,color .2s,transform .15s,box-shadow .2s;
   }
-  .nav-cta:hover{background:var(--blue-hover);transform:translateY(-1px);box-shadow:0 6px 22px var(--cta-glow)}
+  .nav-cta:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6);transform:translateY(-1px)}
+  .nav.scrolled .nav-cta{background:var(--blue);color:#0F172A;border-color:var(--blue);box-shadow:0 3px 14px var(--cta-glow)}
+  .nav.scrolled .nav-cta:hover{background:var(--blue-hover);border-color:var(--blue-hover);box-shadow:0 6px 22px var(--cta-glow)}
 
   /* ── HERO ──────────────────────────────────────────────── */
   .hero{
@@ -178,13 +179,13 @@
     margin-bottom:22px;
     animation:fadeUp .8s .1s ease both;
   }
-  .hero-headline em{font-style:italic;color:rgba(255,255,255,.48)}
+  .hero-headline em{font-style:italic;color:var(--blue)}
 
   .hero-sub{
     font-size:clamp(15px,1.4vw,17px);
-    color:rgba(255,255,255,.55);
+    color:rgba(255,255,255,.78);
     max-width:420px;line-height:1.75;
-    margin-bottom:36px;font-weight:400;
+    margin-bottom:36px;font-weight:500;
     animation:fadeUp .8s .2s ease both;
   }
 
@@ -235,11 +236,11 @@
     pointer-events:none;
   }
   /* Stagger even-column cards down for depth */
-  .hap:nth-child(even){margin-top:22px}
+  .hap:nth-child(even){margin-top:32px}
   .hap:hover{
     transform:translateY(-8px) scale(1.03);
     box-shadow:0 28px 56px rgba(0,0,0,.55);
-    border-color:rgba(232,74,10,.5);
+    border-color:rgba(56,189,248,.55);
   }
   .hap img{
     width:100%;height:100%;
@@ -259,7 +260,7 @@
     color:#fff;line-height:1.25;margin-bottom:2px;
     letter-spacing:-.01em;
   }
-  .hap-role{font-size:10px;color:rgba(255,255,255,.5);line-height:1.35}
+  .hap-role{font-size:11px;color:rgba(255,255,255,.72);line-height:1.35}
 
   /* Quick-book pill — appears on hover */
   .hap-btn{
@@ -312,7 +313,7 @@
     color:var(--blue);line-height:1;margin-bottom:5px;
     letter-spacing:-.02em;font-weight:500;
   }
-  .stat-l{font-size:11px;color:rgba(255,255,255,.35);font-weight:400;letter-spacing:.06em;text-transform:uppercase}
+  .stat-l{font-size:11px;color:rgba(255,255,255,.58);font-weight:400;letter-spacing:.06em;text-transform:uppercase}
 
   @keyframes fadeUp{
     from{opacity:0;transform:translateY(24px)}
@@ -343,7 +344,7 @@
 
   .mission-body{
     font-size:15.5px;color:var(--ink-mid);
-    line-height:1.85;margin-bottom:24px;
+    line-height:1.85;margin-bottom:24px;max-width:54ch;
   }
 
   .mission-body + .mission-body{margin-top:0}
@@ -500,15 +501,15 @@
   .card:hover{
     transform:translateY(-6px);
     box-shadow:var(--sh-hover);
-    border-color:rgba(232,74,10,.25);
+    border-color:rgba(56,189,248,.35);
   }
   .card.hidden{display:none!important}
 
   .card-photo{
     position:relative;
-    aspect-ratio:4/4.5;
+    aspect-ratio:3/4;
     overflow:hidden;
-    background:linear-gradient(135deg,#E8E6DF,#D8D6CE);
+    background:linear-gradient(135deg,#1E293B,#0F172A);
   }
   .card-photo img{
     width:100%;height:100%;object-fit:cover;object-position:top center;
@@ -532,7 +533,7 @@
     background:var(--cta);flex-shrink:0;
   }
 
-  .card-body{padding:20px 20px 0;flex:1;display:flex;flex-direction:column}
+  .card-body{padding:20px 20px 16px;flex:1;display:flex;flex-direction:column}
 
   .card-name{
     font-family:var(--font-d);font-size:21px;
@@ -551,10 +552,19 @@
   .card-meta{
     font-family:var(--font-mono);
     font-size:11px;color:var(--ink-faint);
-    margin-bottom:18px;line-height:1.8;flex:1;
+    margin-bottom:14px;line-height:1.8;
     letter-spacing:.01em;
   }
   .card-meta strong{color:var(--blue);font-weight:500}
+
+  .card-linkedin{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:500;color:var(--ink-faint);
+    text-decoration:none;margin-top:auto;margin-bottom:4px;
+    transition:color .2s;
+  }
+  .card-linkedin:hover{color:var(--blue)}
+  .card-linkedin svg{width:13px;height:13px;flex-shrink:0}
 
   .card-footer{
     padding:14px 20px;
@@ -564,9 +574,9 @@
   .btn-book{
     display:flex;align-items:center;justify-content:center;gap:7px;
     width:100%;padding:11px;border-radius:9px;
-    background:transparent;border:1px solid var(--border);
+    background:var(--blue-dim);border:1px solid rgba(56,189,248,.3);
     font-family:var(--font-b);font-size:13px;font-weight:600;
-    color:var(--ink-mid);cursor:pointer;
+    color:var(--blue);cursor:pointer;
     transition:all .2s;
   }
   .btn-book svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
@@ -579,7 +589,15 @@
     padding:72px 20px;display:none;
   }
   #empty.show{display:block}
-  #empty p{font-size:15px;color:var(--ink-faint)}
+  #empty p{font-size:15px;color:var(--ink-muted);margin-bottom:16px}
+  #empty-clear{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:9px 22px;border-radius:100px;
+    border:1px solid rgba(56,189,248,.3);background:var(--blue-dim);
+    font-size:13px;font-weight:600;color:var(--blue);cursor:pointer;
+    transition:all .2s;
+  }
+  #empty-clear:hover{background:var(--blue);color:#0F172A}
 
   /* ── MODAL ──────────────────────────────────────────────── */
   .overlay{
@@ -613,13 +631,14 @@
   .modal-advisor-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
   .modal-av{
     width:52px;height:52px;border-radius:50%;
-    object-fit:cover;object-position:top;
     background:var(--tag);flex-shrink:0;overflow:hidden;
+    position:relative;
   }
-  .modal-av img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .modal-av img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
   .modal-av-init{
-    width:52px;height:52px;border-radius:50%;
-    background:var(--tag);flex-shrink:0;
+    position:absolute;inset:0;
+    border-radius:50%;
+    background:var(--tag);
     display:flex;align-items:center;justify-content:center;
     font-family:var(--font-d);font-size:20px;color:var(--ink-muted);
   }
@@ -640,7 +659,7 @@
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .fg{margin-bottom:16px}
   .fg.full{grid-column:1/-1}
-  label{display:block;font-family:var(--font-mono);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-faint);margin-bottom:6px}
+  label{display:block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-muted);margin-bottom:6px}
   input,select,textarea{
     width:100%;padding:10px 13px;
     border:1px solid var(--border);border-radius:9px;
@@ -709,6 +728,22 @@
   .footer-note{font-size:12.5px;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.01em}
   .footer-note span{color:var(--blue)}
 
+  /* Mobile filter toggle */
+  .filter-toggle{
+    display:none;
+    width:100%;padding:11px 16px;
+    background:var(--bg-raised);border:1px solid var(--border);border-radius:var(--r);
+    font-family:var(--font-b);font-size:13.5px;font-weight:600;color:var(--ink-mid);
+    cursor:pointer;text-align:left;
+    align-items:center;justify-content:space-between;
+    transition:border-color .2s;
+    margin-bottom:8px;
+  }
+  .filter-toggle:hover{border-color:rgba(56,189,248,.3);color:var(--blue)}
+  .filter-toggle svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .25s}
+  .filter-toggle.open svg{transform:rotate(180deg)}
+  .filters-body{transition:max-height .35s ease,opacity .3s ease;overflow:hidden;max-height:600px;opacity:1}
+
   /* ── Responsive ──────────────────────────────────────────── */
   @media(max-width:1000px){
     .hero-main{grid-template-columns:1fr;gap:32px;padding-top:100px;padding-bottom:28px}
@@ -723,15 +758,29 @@
   @media(max-width:640px){
     .wrap{padding:0 16px}
     .hero-main{padding:88px 16px 20px}
-    .hero-right{gap:6px}
-    .hap:nth-child(even){margin-top:14px}
+    .hero-right{grid-template-columns:repeat(2,1fr);gap:10px}
+    .hap:nth-child(even){margin-top:16px}
+    .hap:nth-child(n+5){display:none}
     .advisors-grid{grid-template-columns:1fr}
     .hero-stats-inner{grid-template-columns:repeat(2,1fr)}
+    .stat{padding:18px 14px}
+    .stat-n{font-size:24px}
     .frow{grid-template-columns:1fr}
     .nav-right .nav-link{display:none}
     .mission{padding:64px 0}
     .advisors{padding:64px 0}
     .how{padding:64px 0}
+    /* Filter collapse */
+    .filter-toggle{display:flex}
+    .filters-body.collapsed{max-height:0;opacity:0}
+    .filters-wrap{padding:12px 14px;gap:12px}
+    .filter-row-label{min-width:56px;font-size:9px}
+    .chip{font-size:11px;padding:4px 11px}
+    /* Mission */
+    .mission-body{max-width:100%}
+    /* Modal */
+    .modal{border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;max-height:92vh}
+    .overlay{align-items:flex-end;padding:0}
   }
   </style>
 </head>
@@ -778,7 +827,7 @@
         </a>
         <span class="hero-trust">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          $0 cost. Always.
+          $0 cost. Pro-bono, by choice.
         </span>
       </div>
     </div>
@@ -866,7 +915,7 @@
       <div class="stat"><div class="stat-n">12+</div><div class="stat-l">Senior advisors</div></div>
       <div class="stat"><div class="stat-n">1 hr</div><div class="stat-l">Focused session</div></div>
       <div class="stat"><div class="stat-n">10</div><div class="stat-l">GTM specializations</div></div>
-      <div class="stat"><div class="stat-n">$0</div><div class="stat-l">Always free</div></div>
+      <div class="stat"><div class="stat-n">$0</div><div class="stat-l">Pro-bono</div></div>
     </div>
   </div>
 </section>
@@ -877,17 +926,12 @@
     <div class="mission-grid">
       <div class="reveal">
         <p class="mission-label">Why We're Doing This</p>
-        <h2 class="mission-headline">Building the future — together, through uncertainty.</h2>
+        <h2 class="mission-headline">One hour, freely given — because the ecosystem needs it now.</h2>
         <p class="mission-body">
-          Israel's startup ecosystem has always punched above its weight. But right now, our founders
-          are navigating uniquely difficult circumstances — managing teams through uncertainty,
-          adapting go-to-market strategies to a changed world, and building companies while the
-          country faces extraordinary challenges.
+          We're a group of senior Israeli marketing leaders — ex-CMOs, VPs, and GTM leads from Israel's most successful tech companies. We've each been in the room when a startup found its footing. We know how much a single sharp conversation can change a trajectory.
         </p>
         <p class="mission-body">
-          We're a group of senior marketing professionals — ex-CMOs, VPs, and GTM leads from Israel's
-          most successful tech companies. We believe the best response to hard times is to build
-          stronger together. So we're each giving one hour, freely.
+          This is our pro-bono contribution to the ecosystem. Each advisor chooses which startup they take on — based on fit, context, and where they can genuinely add value. When you submit a request, it goes straight to the advisor by email, and they decide.
         </p>
         <div class="mission-quote">
           <p>"The best companies in Israeli history were built in difficult moments. We're here to make sure the next ones will be too."</p>
@@ -936,8 +980,8 @@
         <div class="step-ico">
           <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.15 3.43 2 2 0 0 1 3.12 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
         </div>
-        <h3 class="step-title">Get Your Hour</h3>
-        <p class="step-desc">Your advisor reviews, confirms, and reaches out directly. You get a focused, expert session — completely free, no conditions attached.</p>
+        <h3 class="step-title">Advisor Reviews &amp; Decides</h3>
+        <p class="step-desc">The advisor receives your request by email and decides who to take on. If they accept, they'll reach out directly to schedule. This is their pro-bono time — their choice who to spend it with.</p>
       </div>
     </div>
   </div>
@@ -958,7 +1002,12 @@
     </div>
 
     <!-- Filters -->
-    <div class="filters-wrap reveal">
+    <button class="filter-toggle" id="filter-toggle" onclick="toggleFilters()">
+      <span id="filter-toggle-label">Filters</span>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="filters-wrap reveal" id="filters-wrap">
+      <div class="filters-body" id="filters-body">
       <div class="filter-row">
         <span class="filter-row-label">Expertise</span>
         <div class="filter-chips" id="chips-expertise">
@@ -999,6 +1048,7 @@
           <button class="chip" data-group="stage" data-val="Round C">Round C</button>
         </div>
       </div>
+      </div><!-- /filters-body -->
     </div>
 
     <!-- Grid -->
@@ -1022,6 +1072,10 @@
             <span class="tag">Brand & Content</span>
           </div>
           <p class="card-meta"><strong>Best for:</strong> Pre-Seed · Seed · Round A</p>
+          <a href="https://linkedin.com/in/yaelcohen" target="_blank" rel="noopener" class="card-linkedin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/yaelcohen
+          </a>
         </div>
         <div class="card-footer">
           <button class="btn-book" onclick="openModal('Yael Cohen','GTM Strategy, PMM Foundations, Brand & Content','YC','https://v3b.fal.media/files/b/0a9615ab/EW4TsOMOb88A72Y1i3nnl.jpg')">
@@ -1049,6 +1103,10 @@
             <span class="tag">AI Tools</span>
           </div>
           <p class="card-meta"><strong>Best for:</strong> Seed · Round A · Round B</p>
+          <a href="https://linkedin.com/in/dorlevi" target="_blank" rel="noopener" class="card-linkedin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/dorlevi
+          </a>
         </div>
         <div class="card-footer">
           <button class="btn-book" onclick="openModal('Dor Levi','Performance Marketing, PLG, AI Tools','DL','https://v3b.fal.media/files/b/0a9615ac/itjoyD92t0M34-ph1PPBH.jpg')">
@@ -1076,6 +1134,10 @@
             <span class="tag">PMM</span>
           </div>
           <p class="card-meta"><strong>Best for:</strong> Pre-Seed · Seed</p>
+          <a href="https://linkedin.com/in/noabar" target="_blank" rel="noopener" class="card-linkedin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/noabar
+          </a>
         </div>
         <div class="card-footer">
           <button class="btn-book" onclick="openModal('Noa Bar','SEO / AEO, Brand & Content, PMM','NB','https://v3b.fal.media/files/b/0a9615ac/-0oNwFiOVRR-bQKD99wk4.jpg')">
@@ -1103,6 +1165,10 @@
             <span class="tag">Team Design</span>
           </div>
           <p class="card-meta"><strong>Best for:</strong> Round A · Round B · Round C</p>
+          <a href="https://linkedin.com/in/avishapiro" target="_blank" rel="noopener" class="card-linkedin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/avishapiro
+          </a>
         </div>
         <div class="card-footer">
           <button class="btn-book" onclick="openModal('Avi Shapiro','Pricing & Packaging, GTM Strategy, GTM Hires','AS','https://v3b.fal.media/files/b/0a9615b0/fA7O2FsOXZ_rV-lgDZhXy.jpg')">
@@ -1130,6 +1196,10 @@
             <span class="tag">GTM Strategy</span>
           </div>
           <p class="card-meta"><strong>Best for:</strong> Pre-Seed · Seed · Round A</p>
+          <a href="https://linkedin.com/in/mayastern" target="_blank" rel="noopener" class="card-linkedin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/mayastern
+          </a>
         </div>
         <div class="card-footer">
           <button class="btn-book" onclick="openModal('Maya Stern','PMM Foundations, Touch-Sales, GTM Strategy','MS','https://v3b.fal.media/files/b/0a9615b0/nvstJEkCMIODKXtdepwN2.jpg')">
@@ -1157,6 +1227,10 @@
             <span class="tag">PLG</span>
           </div>
           <p class="card-meta"><strong>Best for:</strong> Seed · Round A · Round B</p>
+          <a href="https://linkedin.com/in/ronkatz" target="_blank" rel="noopener" class="card-linkedin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/ronkatz
+          </a>
         </div>
         <div class="card-footer">
           <button class="btn-book" onclick="openModal('Ron Katz','Performance Marketing, AI Tools, PLG','RK','https://v3b.fal.media/files/b/0a9615b0/-7AdTR6f5nBB8vaz4ZLmW.jpg')">
@@ -1166,7 +1240,10 @@
         </div>
       </div>
 
-      <div id="empty"><p>No advisors match these filters. Try adjusting your selection.</p></div>
+      <div id="empty">
+        <p>No advisors match those filters — try removing one constraint.</p>
+        <button id="empty-clear" onclick="clearAllFilters()">Clear all filters</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1195,8 +1272,8 @@
       <div class="success-ring">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <h3 class="success-h">Request sent!</h3>
-      <p class="success-p">Your advisor will review your request and reach out within 48 hours to schedule the session.</p>
+      <h3 class="success-h">Request sent.</h3>
+      <p class="success-p">The advisor has received your request by email and will decide if it's a good fit. If they accept, they'll reach out directly to schedule. Give them up to a week to review.</p>
       <button class="success-btn" onclick="closeModal()">Close</button>
     </div>
 
@@ -1434,19 +1511,49 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 function submitForm(){
   const required = ['f-name','f-company','f-desc','f-linkedin','f-stage','f-industry','f-help'];
   let ok = true;
+  let firstErr = null;
   required.forEach(id=>{
     const el = document.getElementById(id);
     if(!el.value.trim()){
-      el.style.borderColor='var(--cta)';
-      el.style.boxShadow='0 0 0 3px rgba(232,74,10,.12)';
+      el.style.borderColor='#F87171';
+      el.style.boxShadow='0 0 0 3px rgba(248,113,113,.14)';
       ok = false;
+      if(!firstErr) firstErr = el;
       el.addEventListener('input',()=>{ el.style.borderColor=''; el.style.boxShadow=''; },{once:true});
     }
   });
-  if(!ok) return;
+  if(!ok){ firstErr && firstErr.focus(); return; }
   document.getElementById('mform').classList.add('hide');
   document.getElementById('msuccess').classList.add('show');
 }
+
+/* ── Clear all filters ── */
+function clearAllFilters(){
+  filters.expertise='all'; filters.industry='all'; filters.stage='all';
+  document.querySelectorAll('.chip').forEach(c=>{
+    const isAll = c.dataset.val === 'all';
+    c.classList.toggle('active', isAll);
+  });
+  applyFilters();
+}
+
+/* ── Mobile filter toggle ── */
+function toggleFilters(){
+  const body = document.getElementById('filters-body');
+  const btn  = document.getElementById('filter-toggle');
+  const isOpen = !body.classList.contains('collapsed');
+  body.classList.toggle('collapsed', isOpen);
+  btn.classList.toggle('open', !isOpen);
+  document.getElementById('filter-toggle-label').textContent = isOpen ? 'Filters' : 'Filters';
+}
+
+/* Init: collapse filters on mobile */
+(function(){
+  if(window.innerWidth <= 640){
+    const body = document.getElementById('filters-body');
+    if(body) body.classList.add('collapsed');
+  }
+})();
 </script>
 </body>
 </html>
