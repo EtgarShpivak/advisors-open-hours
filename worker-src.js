@@ -149,7 +149,7 @@ async function getAdvisors(env) {
     return new Response(JSON.stringify(arr), {
       headers: Object.assign({
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        'Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
       }, corsHeaders()),
     });
   } catch(e) { return jsonResponse({ error: String(e) }, 500); }
